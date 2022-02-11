@@ -1,42 +1,27 @@
 import { Component } from "react";
-import Button from "./button";
+import Header from "./Header";
+import Main from "./Main";
 
 class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      backgroundColor: '#333'
-    }
+    this.state = { isListVisable: false };
   }
+  toggleList = () => {
+    this.setState({ isListVisable: !this.state.isListVisable });
+  };
 
-  // toogleBackgorundColor=() => {
-  //   if(this.state.backgroundColor === '#333') {
-  //     this.setState({backgroundColor: 'blue'});
-  //   } else {
-  //     this.setState ({backgroundColor: '#333'})
-  //   }
-  // }
-
-  toogleBackgorundColor=() => {
-      this.setState({backgroundColor: this.state.backgroundColor === '#333' ? 'blue' : '#333'});
-    }
-
-
-  render(){
+  render() {
     return (
-      <div style={{ 
-       background: this.state.backgroundColor,
-       height: '100vh' 
-       }}>
-      
-      <Button onClick={this.toogleBackgorundColor}>
-    Toggle background!
-      </Button>
-     
+      <div>
+        <Header
+          isListVisable={this.state.isListVisable}
+          onToggleList={this.toggleList}
+        />
+        <Main isListVisable={this.state.isListVisable} />
       </div>
     );
-
   }
 }
 
