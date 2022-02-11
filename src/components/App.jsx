@@ -10,10 +10,19 @@ class App extends Component {
     }
   }
 
-  toogleBackgorundColor=() => {
-    this.setState({backgroundColor: 'green'});
+  // toogleBackgorundColor=() => {
+  //   if(this.state.backgroundColor === '#333') {
+  //     this.setState({backgroundColor: 'blue'});
+  //   } else {
+  //     this.setState ({backgroundColor: '#333'})
+  //   }
+  // }
 
-  }
+  toogleBackgorundColor=() => {
+      this.setState({backgroundColor: this.state.backgroundColor === '#333' ? 'blue' : '#333'});
+    }
+
+
   render(){
     return (
       <div style={{ 
@@ -22,7 +31,7 @@ class App extends Component {
        }}>
       
       <Button onClick={this.toogleBackgorundColor}>
-      Try here!!
+    Toggle background!
       </Button>
      
       </div>
